@@ -6,13 +6,13 @@ metadata:
     app: postgres
     type: local
 spec:
-  storageClassName: manual
+  storageClassName: microk8s-hostpath
   capacity:
     storage: 5Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/tmp/data"
+    path: "/var/data"
 
 ---
 
@@ -23,7 +23,8 @@ metadata:
   labels:
     app: postgres
 spec:
-  storageClassName: manual
+  storageClassName: microk8s-hostpath
+  capacity:
   accessModes:
     - ReadWriteOnce
   resources:
